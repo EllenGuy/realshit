@@ -1,0 +1,40 @@
+git 操作和linux文件操作很像 . ./ ../ 
+将一个文件夹变成git仓库：
+git init （可加文件夹路径指定文件夹）
+将一个文件添加到git仓库：
+1.git add <filename>(.或者不加表示全部文件) --把文件添加到暂存区
+2.git commit <filename> (不写表示所有已经add的文件)-m <备注信息>： --把暂存区文件提交到当前分支
+查看文件状态：
+git status <filename>(不加就是所有文件)
+查看文件的差异
+git diff <filename>(不加就是所有文件) 工作区和暂存区的差异
+git diff HEAD 工作区和本地仓库最新版本的差异
+查看文件版本：
+git log --pretty=oneline <filename>(不加就是所有文件)
+回退版本（本地库恢复到暂存区和工作区）：
+git reset --hard <cimmit-id> --回退到指定版本(--hard参数表明同步更新工作区)
+查找每一条git命令：
+git reflog <filename>(不加就是所有文件)
+将暂存区文件恢复到工作区
+git checkout <filename>
+小tips：
+工作区改乱了，提交到暂存区，暂存区也改乱了
+1.git reset HEAD -- <filename> (同步本地库最新的代码到暂存区)
+2.git checkout -- <filename>(同步暂存区的代码到工作区)
+
+创建并切换分支：
+git checkout -b <分区名称> 或者 git switch -c <分区名称>
+查看分支：
+git branch
+合并某分支到当前分支：
+git merge <分支名称>
+合并某分支到当前分支：merge时生成一个新的commit，分支历史可以看出分支信息
+git merge --no-ff <分支名称>
+删除分支：
+git branch -d <分支名称>
+删除未被提交的分支：
+git branch -D <分支名称>
+查看分支树：
+git log --graph --pretty=oneline --abbrev-commit
+
+
